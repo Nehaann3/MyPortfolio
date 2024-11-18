@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neha's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* General Reset & Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7f7f7; /* Light background for the whole page */
+            color: #333;
+            line-height: 1.6;
+        }
+        /* Add flex styling to the navbar to align items horizontally */
+.navbar ul {
+    list-style: none; /* Remove bullets */
+    display: flex; /* Use flexbox to align list items horizontally */
+    justify-content: center; /* Center the items */
+    padding: 0; /* Remove any default padding */
+    margin: 0; /* Remove any default margin */
+}
+/* Remove circle effects around navbar links */
+.navbar a {
+    background: none; /* Remove background */
+    border-radius: 0; /* Remove border-radius if any */
+    padding: 0; /* Adjust padding to remove any circular padding */
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: none;
+    outline: none; /* Remove outline */
+    box-shadow: none; /* Remove any box-shadow */
+}
+/* Remove any background, outline, or box-shadow on navbar items */
+.navbar a, .navbar a:focus, .navbar a:hover {
+    background: none !important; /* Remove any background */
+    border: none !important; /* Remove any border */
+    box-shadow: none !important; /* Remove any box-shadow */
+    outline: none !important; /* Remove any outline */
+}
+
+/* Specifically targeting boxicons to remove any visual effects */
+.navbar i, .navbar i:focus, .navbar i:hover {
+    background: none !important; /* Remove any background */
+    border: none !important; /* Remove any border */
+    box-shadow: none !important; /* Remove any box-shadow */
+    outline: none !important; /* Remove any outline */
+}
+
+
+/* If there are any specific circle effects from Boxicons */
+.navbar i {
+    background: none;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+    outline: none;
+}
+
+.navbar li {
+    margin: 0 15px; /* Add space between each list item */
+}
+
+.navbar a {
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color: #00abf0;
+}
+
+
+        /* Header Section */
+        header {
+            background-color: #081b29;
+            padding: 20px;
+            color: #fff;
+            position: fixed; /* To make it fixed on the right */
+    top: 0;
+    right: 0;
+    z-index: 1000;
+
+        }
+
+        
+
+        /* About Section Styles */
+        .about {
+            background-color: #081b29;
+            padding: 50px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .about-content {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            color: #ededed;
+            margin-bottom: 20px;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: #fdfefe;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+        /* Projects Section Styles */
+        .projects {
+            background-color: #081b29; /* Match About section background color */
+            padding: 50px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .projects h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #fff; /* White color for the title */
+        }
+
+        .card {
+            background-color: #00abf0; /* Dark background for cards */
+            border: 2px solid #00abf0; /* Border color */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            transition: transform 0.3s ease-in-out; /* Animation on hover */
+        }
+
+        .card:hover {
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+
+        .card img {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            max-height: 200px; /* Control image height */
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 20px;
+            color: #0d465c;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: #081b29;
+            margin-bottom: 15px;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            color: #d1d1d1; /* Slightly lighter color for the description */
+            margin-bottom: 20px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card-footer a {
+            text-decoration: none;
+            color: #081b29;
+            margin-right: 10px;
+            font-weight: 600;
+        }
+
+        .card-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Home Section Styling */
+        .home {
+            background-color: #081b29;
+            padding: 50px 20px;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Align content vertically */
+            height: 100vh;
+        }
+
+        .home h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .home h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .btn-box {
+            margin-top: 20px;
+        }
+
+        .hire-btn {
+            padding: 12px 30px;
+            background-color: #00abf0;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hire-btn:hover {
+            background-color: #0190c2;
+        }
+
+        /* Skills Section Styles */
+        .skills {
+            background-color: #081b29; /* Light background for the Skills section */
+            padding: 50px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .skills h1 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 40px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .skills .card {
+            margin: 15px;
+            background-color: #00abf0;
+            border: 2px solid #00abf0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .skills .card img {
+            max-width: 100px;
+            margin: 20px auto;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .about h2, .projects h2, .skills h2 {
+                font-size: 2rem;
+            }
+
+            .about-text, .card-text {
+                font-size: 1rem;
+            }
+
+            .card {
+                margin-bottom: 20px;
+            }
+
+            .card-img-top {
+                height: 150px;
+                width:100%;
+                object-fit: cover; /* Adjust the image size for smaller screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <header class="header">
+        <div class="logo-navbar">
+            <a href="#" class="logo">Neha.</a>
+            
+        </div>
+    </header>
+
+    <svg class="vertical-line" height="100vh">
+        <line x1="0" y1="0" x2="0" y2="100%" style="stroke:red;stroke-width:2" />
+    </svg>
+
+    <section id="home" class="home">
+        <div class="home-content">
+            <h1>Hello</h1>
+            <h3>Hi, I'm Neha Ann Samson, a recent Computer Science Engineering graduate with a fervor for technology. I thrive on applying my skills and knowledge to cutting-edge software development projects. Additionally, I possess strong data analysis skills, including proficiency in data visualization techniques and tools such as MS Excel and Power BI, making me a versatile and dynamic contributor to any team.</h3>
+           <!---- <div class="btn-box">
+                <a href="file:///C:/Users/MY%20BOOK/Downloads/Gray%20and%20White%20Simple%20Clean%20Resume%20(3)%20(1).pdf" target="_blank" class="hire-btn">Hire Me</a>
+                
+            </div> -->
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-content">
+            <h2>About</h2>
+            <p class="about-text">As a recent graduate with a degree in Computer Science and Engineering, I possess a solid foundation in data analysis, statistical methods, and data visualization, complemented by proficiency in Python, SQL, Excel, and Power BI. My strong analytical skills enable me to derive actionable insights from complex datasets, and my ability to work collaboratively ensures effective teamwork.</p>
+            <p class="about-text">My passion for data analytics, combined with a robust technical background, makes me an enthusiastic and dedicated candidate eager to contribute to your company's data-driven decision-making processes.</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="row justify-content-center">
+                <!-- Project 1 Card -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <a href="https://ibb.co/smKkz72"><img src="https://i.ibb.co/7Yn8LhX/PROJECT-PIC1.png" alt="PROJECT-PIC1" style="width: 100%; height: 150px; object-fit: cover;" ></a>
+                        <div class="card-body">
+                            <h5 class="card-title">PIZZA SALES REPORT</h5>
+                            <p class="card-text">The Pizza Sales Report project analyzes and visualizes pizza sales data using Power BI, featuring interactive dashboards and key performance metrics. It integrates an SQL database to provide real-time insights into sales trends and performance for informed business decisions.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://github.com/Nehaann3/PizzaSalesReport" class="btn btn-link">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 Card -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <a href="https://ibb.co/PM2Y7Qh"><img src="https://i.ibb.co/DYBbxpC/PROJECT-PIC2.png" alt="PROJECT-PIC2" style="width: 100%; height: 150px; object-fit: cover;" ></a>
+                        <div class="card-body">
+                            <h5 class="card-title">Grocery Sales Report</h5>
+                            <p class="card-text">The Grocery Sales Report project leverages Power BI to analyze and visualize grocery sales data, outlet size, outlet establishment, outlet type providing interactive dashboards and key performance metrics. It offers insights into sales trends and performance, aiding in informed business decisions.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://github.com/Nehaann3/GrocerySalesReport" class="btn btn-link">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 Card -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <a href="https://ibb.co/VSs6MpQ"><img src="https://i.ibb.co/7WqhrNR/PROJECT-PIC3.png" alt="PROJECT-PIC3" style="width: 100%; height: 150px; object-fit: cover;"  ></a>
+                        <div class="card-body">
+                            <h5 class="card-title">Coffee Orders Data</h5>
+                            <p class="card-text">The Coffee Orders Data project uses Excel to visualize and analyze coffee sales data. It features interactive charts, timeline and performance metrics providing insights into sales trends, customer behavior, and product performance to support strategic decision-making.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://github.com/Nehaann3/CoffeeOrdersData" class="btn btn-link">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Project 4 Card --> 
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <a href="https://ibb.co/qNrrGbR"><img src="https://i.ibb.co/48VVyBj/PROJECT-PIC-4.png" alt="PROJECT-PIC-4" style="width: 100%; height: 150px; object-fit: cover;" ></a>
+                <div class="card-body">
+                    <h5 class="card-title">Road Accidents Data</h5>
+                    <p class="card-text">This Excel project analyzes road accident data, categorizing incidents into fatal, serious, and slight accidents. It provides a monthly trend comparison between the current year and the previous year. Additionally, the dashboard offers insights into casualties based on road types and lighting conditions, helping to identify patterns and areas for safety improvements.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="https://github.com/Nehaann3/RoadAccidentsData" class="btn btn-link">Source Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h1>Skills</h1>
+            <div class="row justify-content-center">
+                <!-- Skill 1 Card -->
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <a href="https://imgbb.com/"><img src="https://i.ibb.co/NN7XTgG/Icon.png" alt="Icon" style="display: block; margin: auto; width: 100%; height: 150px; object-fit: cover;" ></a>
+                        <div class="card-body">
+                            <h5 class="card-title">Python</h5>
+                            <p class="card-text">Intermediate-level proficiency in Python, with a strong understanding of libraries such as NumPy and Pandas.</p>
+                        </div>
+                       
+                    </div>
+                </div>
+                <!-- Skill 2 Card -->
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <a href="https://imgbb.com/"><img src="https://i.ibb.co/bgfPcJm/Icon2.png" alt="Icon2" style="display: block; margin: auto; width: 100%; height: 150px; object-fit: cover;"></a>
+                        <div class="card-body">
+                            <h5 class="card-title">Data Visualization</h5>
+                            <p class="card-text">Good knowledge of data visualization techniques, including MS Excel and Power BI, with strong dashboard skills.</p>
+                        </div>
+                       
+                    </div>
+                </div>
+                <!-- Skill 3 Card -->
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <a href="https://imgbb.com/"><img src="https://i.ibb.co/6RYm2ZF/Icon3.png" alt="Icon3"  style="display: block; margin: auto; width: 100%; height: 150px; object-fit: cover;"></a>
+                        <div class="card-body">
+                            <h5 class="card-title">SQL</h5>
+                            <p class="card-text">Intermediate-level SQL expertise, encompassing aggregate functions, normalization, and efficient data querying techniques.</p>
+
+                    </div>
+                </div>
+                <!-- Skill 4 Card -->
+                
+    </section>
+    <!-- Contact Me Section -->
+<section id="contact" class="contact">
+    <div class="container">
+        <h1>Contact Me</h1>
+        <div class="contact-info">
+            <div>
+                <i class='bx bxs-envelope'></i>
+                <span>nehaannsamson@gmail.com</span>
+            </div>
+            <div>
+                <i class='bx bxs-phone'></i>
+                <span>+91 7034328355</span>
+            </div>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/neha-ann-samson-412636265?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" title="LinkedIn">
+               <img src="https://i.ibb.co/CnSwLVH/social.png" alt="social" >
+            </a>
+            <a href="https://github.com/Nehaann3" target="_blank" title="GitHub">
+                <img src="https://i.ibb.co/Bqn3VVn/github.png" alt="github" >
+            </a>
+           
+        </div>
+    </div>
+</section>
+
+<style>
+    .contact {
+        background-color: #081b29;
+        padding: 50px 20px;
+        color: white;
+        text-align: center;
+    }
+
+    .contact h1 {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+    }
+
+    .contact-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        margin-bottom: 30px;
+    }
+
+    .contact-info div {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.2rem;
+    }
+
+    .contact-info i {
+        font-size: 2rem;
+    }
+
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .social-icons a {
+        background-color: #00abf0;
+        color: white;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+
+    .social-icons a:hover {
+        background-color: #0190c2;
+    }
+
+    .social-icons a img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .social-icons a[title]:hover:after {
+        content: attr(title);
+        position: absolute;
+        bottom: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #333;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        white-space: nowrap;
+    }
+
+    @media screen and (max-width: 768px) {
+        .contact-info {
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-info div {
+            font-size: 1rem;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+        }
+
+        .social-icons a img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+</style>
+
+
+</body>
+</html>
